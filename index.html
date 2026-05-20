@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blockchain Voting System</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #1b1b3a, #0a0a23);
+      overflow: hidden;
+    }
+
+    /* floating background shapes */
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: #6c63ff;
+      border-radius: 50%;
+      filter: blur(120px);
+      animation: move 8s infinite alternate;
+      opacity: 0.4;
+    }
+
+    body::after {
+      background: #00d4ff;
+      top: 60%;
+      left: 70%;
+    }
+
+    body::before {
+      top: 10%;
+      left: 10%;
+    }
+
+    @keyframes move {
+      from { transform: translateY(0px); }
+      to { transform: translateY(40px); }
+    }
+
+    .container {
+      width: 380px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+      color: white;
+      z-index: 1;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      color: #00e5ff;
+    }
+
+    .input-box {
+      position: relative;
+      margin: 15px 0;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      outline: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .input-box label {
+      position: absolute;
+      left: 10px;
+      top: 12px;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      transition: 0.3s;
+      pointer-events: none;
+    }
+
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label {
+      top: -8px;
+      left: 8px;
+      font-size: 11px;
+      color: #00e5ff;
+      background: #0a0a23;
+      padding: 0 5px;
+    }
+
+    input[type="file"] {
+      padding: 8px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: black;
+      background: linear-gradient(90deg, #00e5ff, #7c4dff);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00e5ff;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Blockchain Voting</h2>
+    <div class="title">Secure Voter Registration</div>
+
+    <form action="/register" method="POST" enctype="multipart/form-data">
+
+      <div class="input-box">
+        <input type="text" name="name" required>
+        <label>Full Name</label>
+      </div>
+
+      <div class="input-box">
+        <input type="text" name="govtId" required>
+        <label>Government ID</label>
+      </div>
+
+      <div class="input-box">
+        <input type="date" name="dob" required>
+      </div>
+
+      <div class="input-box">
+        <input type="email" name="email" required>
+        <label>Email Address</label>
+      </div>
+
+      <div class="input-box">
+        <input type="text" name="phone" required>
+        <label>Phone Number</label>
+      </div>
+
+      <div class="input-box">
+        <input type="file" name="photo" required>
+      </div>
+
+      <button type="submit">Register Securely</button>
+
+    </form>
+
+  </div>
+
+</body>
+
+</html>
